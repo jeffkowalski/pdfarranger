@@ -361,12 +361,12 @@ class PdfArranger(Gtk.Application):
         accels = [
             ('delete', 'Delete'),
             ('crop', 'c'),
-            ('rotate(90)', '<Ctrl>Right'),
-            ('rotate(-90)', '<Ctrl>Left'),
+            ('rotate(90)', ['<Ctrl>Right', '<Ctrl>r']),
+            ('rotate(-90)', ['<Ctrl>Left', '<Ctrl><Shift>r']),
             ('save', '<Ctrl>s'),
             ('save-as', '<Ctrl><Shift>s'),
             ('export-selection', '<Ctrl>e'),
-            ('quit', '<Ctrl>q'),
+            ('quit', ['<Ctrl>q', '<Ctrl>w']),
             ('import', 'Insert'),
             ('zoom(5)', ['plus', 'KP_Add']),
             ('zoom(-5)', ['minus', 'KP_Subtract']),
@@ -376,8 +376,11 @@ class PdfArranger(Gtk.Application):
             ('copy', '<Ctrl>c'),
             ('paste(0)', '<Ctrl>v'),
             ('paste(1)', '<Ctrl><Shift>v'),
-            ('select(0)', '<Ctrl>a'),
-            ('select(1)', '<Ctrl><Shift>a'),
+            ('select(0)', '<Ctrl>a'),        # all
+            ('select(1)', '<Ctrl><Shift>a'), # deslect
+            ('select(2)', '1'),              # odd
+            ('select(3)', '2'),              # even
+            ('select(4)', 'asciitilde'),     # invert
             ('main-menu', 'F10'),
         ]
         for a, k in accels:
