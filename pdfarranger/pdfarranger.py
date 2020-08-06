@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # Copyright (C) 2008-2017 Konstantinos Poulios, 2018-2019 Jerome Robert
 #
 # pdfarranger is free software; you can redistribute it and/or modify
@@ -765,11 +767,13 @@ class PdfArranger(Gtk.Application):
         self.save_or_choose()
 
     def save_or_choose(self):
-        """Saves to the previously exported file or shows the export dialog if
-        there was none."""
+        """Saves to the previously exported file, the original file, or shows the export dialog if
+        there was neither."""
         try:
             if self.export_file:
                 self.save(False, self.export_file)
+            elif len(self.pdfqueue) > 0:
+                self.save(False, self.pdfqueue[0].filename)
             else:
                 self.choose_export_pdf_name()
         except Exception as e:
