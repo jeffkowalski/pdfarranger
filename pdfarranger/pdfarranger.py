@@ -775,7 +775,7 @@ class PdfArranger(Gtk.Application):
         try:
             if self.export_file:
                 self.save(False, self.export_file)
-            elif len(self.pdfqueue) > 0:
+            elif len(self.pdfqueue) == 1:
                 self.save(False, self.pdfqueue[0].filename)
             else:
                 self.choose_export_pdf_name()
